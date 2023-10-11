@@ -6,8 +6,10 @@
     "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["jest"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/types/*.ts", "node_modules", ".vscode"]
+  "compileOnSave": true,
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["src/types/*.ts", "node_modules", ".vscode", "./coverage", "./dist", "jest.config.js"]
 }

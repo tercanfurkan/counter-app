@@ -3,3 +3,4 @@
 /server/dist
 server/.DS_Store
 server/src/.DS_Store
+server/coverage/
