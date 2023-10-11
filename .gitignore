@@ -1,5 +1,5 @@
-.DS_STORE
-node_modules
-*.log
-package-lock.json
-yarn.lock
+/client/node_modules
+/server/node_modules
+/server/dist
+server/.DS_Store
+server/src/.DS_Store
