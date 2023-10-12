@@ -1,10 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { useState } from 'react';
 
+const API_URL = 'http://localhost:4000/api/v1';
+
 const getCounters = (): Promise<
     AxiosResponse<{ counters: Record<string, number> }>
 > => {
-    return axios.get('http://localhost:4000/counters', {
+    return axios.get(`${API_URL}/counters`, {
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
@@ -15,7 +17,7 @@ const createUser = (
     username: string,
     password: string
 ): Promise<AxiosResponse<{ username: string }>> => {
-    return axios.post('http://localhost:4000/login', {
+    return axios.post(`${API_URL}/login`, {
         username,
         password
     });
@@ -24,7 +26,7 @@ const createUser = (
 const increaseCounter = (
     username: string
 ): Promise<AxiosResponse<{ counters: Record<string, number> }>> => {
-    return axios.put('http://localhost:4000/counters/' + username);
+    return axios.put(`${API_URL}/counters/${username}`);
 };
 
 const App: React.FC = () => {

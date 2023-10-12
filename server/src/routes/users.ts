@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import { createUser, getCounters, increaseCounter } from '../controllers/controllers';
+import { getCounters, increaseCounter } from '../controllers/user';
 
 const router: Router = Router();
-
-router.post('/login', createUser);
 router.get('/counters', getCounters);
 router.put('/counters/:username', increaseCounter);
 
-export default router
+export default router;

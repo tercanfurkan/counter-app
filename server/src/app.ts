@@ -2,8 +2,11 @@ import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
-import counterRoutes from './routes/routes';
+import authRoutes from './routes/auth';
+import userRoutes from './routes/users';
 import connectDB from './config/db';
+
+const API_BASE_PATH = process.env.API_BASE_PATH || '/api/v1';
 
 // Connect MongoDB
 connectDB();
@@ -20,7 +23,8 @@ app.options(
 app.use(cors());
 
 // Mount routes
-app.use(counterRoutes);
+app.use(API_BASE_PATH, authRoutes);
+app.use(API_BASE_PATH, userRoutes);
 
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () =>
@@ -30,7 +34,7 @@ const server = app.listen(PORT, () =>
 );
 
 const mountRoutes = (app: Express) => {
-    app.use(counterRoutes);
+    app.use(authRoutes);
 };
 
 const configureWebMiddleware = (app: Express) => {};
